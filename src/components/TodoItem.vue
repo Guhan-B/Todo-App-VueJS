@@ -1,7 +1,10 @@
 <template>
     <div class="todo-item" v-bind:class="{'completed' : todo.completed}">
         <p>{{ todo.task }}</p>
-        <input type="checkbox" v-on:change="todo.completed=!todo.completed">       
+        <div class="controls">
+            <input type="checkbox" v-on:change="todo.completed=!todo.completed">      
+            <button><font-awesome-icon :icon="['fas', 'trash-alt']" /></button> 
+        </div>
     </div>
 </template>
 
@@ -36,8 +39,22 @@ export default {
     align-items: center;
     justify-content: space-between;
 }
+.controls{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .completed{
     text-decoration: line-through;
+}
+
+button{
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 1.15rem;
+    margin: 0 1rem;
+    cursor: pointer;
 }
 .todo-item p{
     font-size: 1.25rem;
@@ -49,5 +66,6 @@ export default {
     width: 20px;
     height: 20px;
     margin: 0 1rem;
+    background: #f4f4ff;
 }
 </style>
