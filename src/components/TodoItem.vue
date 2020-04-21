@@ -3,7 +3,7 @@
         <p>{{ todo.task }}</p>
         <div class="controls">
             <input type="checkbox" v-on:change="todo.completed=!todo.completed">      
-            <button><font-awesome-icon :icon="['fas', 'trash-alt']" /></button> 
+            <button v-on:click="$emit('del-todo',todo.id)"><font-awesome-icon :icon="['fas', 'trash-alt']" /></button> 
         </div>
     </div>
 </template>
@@ -18,9 +18,7 @@ export default {
         },
     },
     methods: {
-        toggleStatus(){
-            this.todo.completed = !this.todo.completed;
-        }
+
     }
 }
 </script>

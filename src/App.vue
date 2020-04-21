@@ -1,47 +1,44 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <AddTodo v-on:add-todo="addTodo"></AddTodo>
-    <Todos v-bind:todos="todos" />
+    <div id="nav">
+        <Header></Header>
+        <div class="links">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </div>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Todos from "./components/Todos";
-import AddTodo from "./components/AddTodo";
-import Header from "./components/Header";
+import Header from './components/Header';
 
 export default {
   name: 'App',
-  components: {
-    Todos,
-    AddTodo,
+  components:{
     Header,
-  },
-  data(){
-    return {
-      todos : [],
-      count: 0,
-    }
-  },
-  methods : {
-    addTodo(todoTask){
-      this.todos.push({id:this.count,task:todoTask,completed:false});
-      this.count+=1;
-    }
   }
-
 }
 </script>
 
 <style>
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.links{
+    text-align: center;
+    color: #2c3e50;
+    padding: 1rem;
+    text-transform: uppercase;
 }
 </style>
+
