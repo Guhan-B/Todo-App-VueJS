@@ -1,8 +1,8 @@
 <template>
     <div>
-        <form onsubmit="false">
-            <input type="text" class="text" v-model="enteredTodo">
-            <input type="button" value="add" class="btn" v-on:click="AddTodo">
+        <form v-on:submit.prevent>
+            <input type="text" class="text" v-model="enteredTodo" v-on:keyup.enter="AddTodo">
+            <input type="button" value="add" class="btn" v-on:click="AddTodo" >
         </form>
     </div>
 </template>
